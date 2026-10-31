@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حاسبة التمويل العقاري | القسط الشهري ونسبة الاستقطاع</title>
+<meta name="description" content="احسب قسط التمويل العقاري الشهري وإجمالي الأرباح ونسبة الاستقطاع من الراتب، بالنسبة الثابتة والمتناقصة.">
+<link rel="canonical" href="https://example.com/mortgage.html">
+<meta property="og:title" content="حاسبة التمويل العقاري | القسط الشهري ونسبة الاستقطاع">
+<meta property="og:description" content="احسب قسط التمويل العقاري الشهري وإجمالي الأرباح ونسبة الاستقطاع من الراتب، بالنسبة الثابتة والمتناقصة.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<!-- GOOGLE ADSENSE: after approval, replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID and remove the comment markers.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ما الفرق بين النسبة الثابتة والمتناقصة؟", "acceptedAnswer": {"@type": "Answer", "text": "النسبة الثابتة (Flat) تُحسب على أصل المبلغ طوال المدة، بينما النسبة المتناقصة (APR) تُحسب على الرصيد المتبقي فتقل الأرباح مع كل قسط. لذلك تبدو النسبة الثابتة أقل رقمًا لكنها أعلى تكلفة فعليًا."}}, {"@type": "Question", "name": "كم أقصى مدة للتمويل العقاري؟", "acceptedAnswer": {"@type": "Answer", "text": "تصل مدة التمويل العقاري لدى أغلب البنوك السعودية إلى 25 أو 30 سنة، بشرط ألا يتجاوز عمر العميل حدًا معينًا عند نهاية التمويل."}}, {"@type": "Question", "name": "كم الدفعة الأولى المطلوبة؟", "acceptedAnswer": {"@type": "Answer", "text": "تختلف حسب البنك ونوع العميل، وقد تكون أقل للمستفيدين من الدعم السكني لأول مرة. أدخل النسبة التي عرضها عليك البنك في الحاسبة."}}, {"@type": "Question", "name": "ما نسبة الاستقطاع من الراتب؟", "acceptedAnswer": {"@type": "Answer", "text": "هي نسبة القسط الشهري من صافي الراتب. تضع البنوك سقفًا لها بحسب تعليمات البنك المركزي وشريحة الراتب ووجود التزامات أخرى، فتأكد من البنك قبل التقديم."}}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span>٪</span>حاسبتك</a>
+    <nav class="nav" aria-label="القائمة الرئيسية"><a href="index.html">الرئيسية</a><a href="end-of-service.html">نهاية الخدمة</a><a href="mortgage.html" aria-current="page">التمويل العقاري</a><a href="gosi-salary.html">الراتب بعد التأمينات</a><a href="zakat.html">الزكاة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<section class="page-title">
+  <h1>حاسبة التمويل العقاري في السعودية</h1>
+  <p>اعرف القسط الشهري وإجمالي الأرباح ونسبة الاستقطاع من راتبك قبل التقديم على التمويل.</p>
+</section>
+<section class="calc">
+  <div class="fields">
+    <div><label for="price">قيمة العقار (ريال)</label><input id="price" inputmode="decimal" placeholder="مثال: 900000"></div>
+    <div><label for="down">الدفعة الأولى (%)</label><input id="down" inputmode="decimal" value="10"></div>
+    <div><label for="rate">نسبة الربح السنوية (%)</label><input id="rate" inputmode="decimal" placeholder="مثال: 5.5"></div>
+    <div><label for="years">مدة التمويل (سنوات)</label><input id="years" inputmode="numeric" value="25"></div>
+    <div><label for="type">نوع النسبة</label>
+      <select id="type"><option value="apr">متناقصة (APR)</option><option value="flat">ثابتة (Flat)</option></select></div>
+    <div><label for="salary">صافي الراتب الشهري (اختياري)</label><input id="salary" inputmode="decimal" placeholder="لحساب نسبة الاستقطاع"></div>
+  </div>
+  <button class="btn" onclick="calcMort()">احسب القسط</button>
+  <div id="res" class="result" aria-live="polite"></div>
+</section>
+<div class="ad-slot"><!-- AdSense ad unit goes here --></div>
+<section class="article">
+  <h2>كيف يُحسب قسط التمويل العقاري؟</h2>
+  <p>يبدأ الحساب بمبلغ التمويل، وهو قيمة العقار مطروحًا منها الدفعة الأولى. بعد ذلك يعتمد القسط على نسبة الربح والمدة وطريقة احتساب النسبة:</p>
+  <h3>النسبة المتناقصة (APR)</h3>
+  <p>تُحسب الأرباح كل شهر على الرصيد المتبقي فقط. في بداية التمويل يذهب جزء كبير من القسط للأرباح، ومع الوقت يزيد الجزء الذي يسدد أصل المبلغ. هذه هي الطريقة المعتادة في التمويل العقاري.</p>
+  <h3>النسبة الثابتة (Flat)</h3>
+  <p>تُحسب الأرباح على كامل مبلغ التمويل لكل سنة من المدة، ثم يُقسم المجموع على عدد الأقساط. نسبة ثابتة قدرها 3% مثلًا تعادل تقريبًا نسبة متناقصة أعلى بكثير، لذلك قارن دائمًا باستخدام النسبة المتناقصة.</p>
+  <h2>نصائح قبل التقديم</h2>
+  <p>رفع الدفعة الأولى ولو بنسبة بسيطة يخفض إجمالي الأرباح بشكل ملحوظ. وتقصير المدة يرفع القسط لكنه يوفر مبالغ كبيرة على المدى الطويل. جرّب أكثر من سيناريو في الحاسبة وقارن بين عروض البنوك على أساس النسبة السنوية الفعلية.</p>
+  <h2>أسئلة شائعة</h2><h3>ما الفرق بين النسبة الثابتة والمتناقصة؟</h3><p>النسبة الثابتة (Flat) تُحسب على أصل المبلغ طوال المدة، بينما النسبة المتناقصة (APR) تُحسب على الرصيد المتبقي فتقل الأرباح مع كل قسط. لذلك تبدو النسبة الثابتة أقل رقمًا لكنها أعلى تكلفة فعليًا.</p><h3>كم أقصى مدة للتمويل العقاري؟</h3><p>تصل مدة التمويل العقاري لدى أغلب البنوك السعودية إلى 25 أو 30 سنة، بشرط ألا يتجاوز عمر العميل حدًا معينًا عند نهاية التمويل.</p><h3>كم الدفعة الأولى المطلوبة؟</h3><p>تختلف حسب البنك ونوع العميل، وقد تكون أقل للمستفيدين من الدعم السكني لأول مرة. أدخل النسبة التي عرضها عليك البنك في الحاسبة.</p><h3>ما نسبة الاستقطاع من الراتب؟</h3><p>هي نسبة القسط الشهري من صافي الراتب. تضع البنوك سقفًا لها بحسب تعليمات البنك المركزي وشريحة الراتب ووجود التزامات أخرى، فتأكد من البنك قبل التقديم.</p>
+  <div class="note">النتيجة تقديرية ولا تشمل الرسوم الإدارية أو التأمين أو الدعم السكني. العرض النهائي يحدده البنك.</div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© <span id="yr"></span> حاسبتك. حاسبات مالية مجانية للمقيمين في السعودية.</div>
+    <div><a href="about.html">من نحن</a><a href="privacy.html">سياسة الخصوصية</a><a href="contact.html">اتصل بنا</a></div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+<script>
+function calcMort(){
+  var price=num('price'), down=num('down'), rate=num('rate'), years=num('years'), type=document.getElementById('type').value, salary=num('salary');
+  if(price<=0||years<=0){showResult('res','<p>أدخل قيمة العقار ومدة التمويل.</p>');return;}
+  var P=price*(1-down/100), n=Math.round(years*12), M;
+  if(type==='flat'){M=(P+P*rate/100*years)/n;}
+  else{var r=rate/100/12; M=r===0?P/n:P*r/(1-Math.pow(1+r,-n));}
+  var total=M*n, list=[
+    ['مبلغ التمويل', sar(P)],
+    ['الدفعة الأولى', sar(price-P)],
+    ['عدد الأقساط', n+' شهر'],
+    ['إجمالي الأرباح', sar(total-P)],
+    ['إجمالي المبلغ المسدد', sar(total)]
+  ];
+  if(salary>0){list.push(['نسبة الاستقطاع من الراتب', (M/salary*100).toFixed(1)+'%']);}
+  showResult('res','<div>القسط الشهري</div><div class="big">'+sar(M)+'</div>'+rows(list));
+}
+</script>
+</body>
+</html>

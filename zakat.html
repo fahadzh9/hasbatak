@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حاسبة الزكاة | زكاة المال والأسهم والذهب</title>
+<meta name="description" content="احسب زكاة مالك من النقد والأسهم والذهب، وتحقق من بلوغ النصاب بسعر الذهب الحالي.">
+<link rel="canonical" href="https://example.com/zakat.html">
+<meta property="og:title" content="حاسبة الزكاة | زكاة المال والأسهم والذهب">
+<meta property="og:description" content="احسب زكاة مالك من النقد والأسهم والذهب، وتحقق من بلوغ النصاب بسعر الذهب الحالي.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<!-- GOOGLE ADSENSE: after approval, replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID and remove the comment markers.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ما هو نصاب الزكاة؟", "acceptedAnswer": {"@type": "Answer", "text": "النصاب في النقود يعادل قيمة 85 جرامًا من الذهب عيار 24. إذا بلغ مالك هذا المقدار وحال عليه الحول الهجري وجبت فيه الزكاة."}}, {"@type": "Question", "name": "كم نسبة الزكاة؟", "acceptedAnswer": {"@type": "Answer", "text": "نسبة زكاة النقود وعروض التجارة 2.5% من صافي المال الزكوي عند تمام الحول."}}, {"@type": "Question", "name": "هل أخصم الديون من مالي؟", "acceptedAnswer": {"@type": "Answer", "text": "يرى كثير من أهل العلم خصم الديون الحالّة المستحقة عليك قبل حساب الزكاة، والحاسبة تتيح ذلك. للمسائل الخاصة يُرجع إلى أهل العلم."}}, {"@type": "Question", "name": "كيف أزكي الأسهم؟", "acceptedAnswer": {"@type": "Answer", "text": "إذا كانت الأسهم للمتاجرة فتُزكى بقيمتها السوقية عند الحول. وإن كانت للاستثمار طويل الأمد ففيها تفصيل، ويمكن الرجوع إلى هيئة الزكاة والضريبة والجمارك أو أهل العلم."}}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span>٪</span>حاسبتك</a>
+    <nav class="nav" aria-label="القائمة الرئيسية"><a href="index.html">الرئيسية</a><a href="end-of-service.html">نهاية الخدمة</a><a href="mortgage.html">التمويل العقاري</a><a href="gosi-salary.html">الراتب بعد التأمينات</a><a href="zakat.html" aria-current="page">الزكاة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<section class="page-title">
+  <h1>حاسبة الزكاة</h1>
+  <p>احسب زكاة مالك من النقود والأسهم والذهب، وتحقق من بلوغ النصاب.</p>
+</section>
+<section class="calc">
+  <div class="fields">
+    <div><label for="cash">النقد والأرصدة البنكية (ريال)</label><input id="cash" inputmode="decimal" placeholder="0"></div>
+    <div><label for="inv">قيمة الأسهم والاستثمارات الزكوية (ريال)</label><input id="inv" inputmode="decimal" placeholder="0"></div>
+    <div><label for="gold">قيمة الذهب والفضة المدخر (ريال)</label><input id="gold" inputmode="decimal" placeholder="0"></div>
+    <div><label for="recv">ديون لك مرجوة السداد (ريال)</label><input id="recv" inputmode="decimal" placeholder="0"></div>
+    <div><label for="debt">ديون حالّة عليك (ريال)</label><input id="debt" inputmode="decimal" placeholder="0"></div>
+    <div><label for="gp">سعر جرام الذهب عيار 24 اليوم (ريال)<span class="hint" id="gp-status">جارٍ جلب السعر الحالي...</span></label><input id="gp" inputmode="decimal" placeholder="أدخل السعر الحالي"></div>
+  </div>
+  <button class="btn" onclick="calcZakat()">احسب الزكاة</button>
+  <div id="res" class="result" aria-live="polite"></div>
+</section>
+<div class="ad-slot"><!-- AdSense ad unit goes here --></div>
+<section class="article">
+  <h2>شروط وجوب الزكاة</h2>
+  <p>تجب الزكاة في المال إذا بلغ النصاب، وكان مملوكًا ملكًا تامًا، وحال عليه الحول الهجري. ونصاب النقود يُقدّر بقيمة 85 جرامًا من الذهب، لذلك يتغير بتغير سعر الذهب.</p>
+  <h2>كيف تعمل الحاسبة؟</h2>
+  <p>تجمع الحاسبة أموالك الزكوية من نقد وأسهم وذهب وديون مرجوة، ثم تطرح الديون الحالّة عليك. إذا بلغ الصافي النصاب تحسب 2.5% منه. وإذا كنت تحسب زكاتك بالسنة الميلادية فبعض الجهات تعتمد نسبة 2.5775% لأن السنة الميلادية أطول من الهجرية بنحو أحد عشر يومًا.</p>
+  <h2>ما الذي لا تجب فيه الزكاة؟</h2>
+  <p>لا زكاة في المسكن الذي تسكنه، ولا السيارة الخاصة، ولا أثاث المنزل، ولا الأدوات الشخصية. أما ذهب الزينة المستعمل للمرأة ففيه خلاف بين العلماء.</p>
+  <h2>أسئلة شائعة</h2><h3>ما هو نصاب الزكاة؟</h3><p>النصاب في النقود يعادل قيمة 85 جرامًا من الذهب عيار 24. إذا بلغ مالك هذا المقدار وحال عليه الحول الهجري وجبت فيه الزكاة.</p><h3>كم نسبة الزكاة؟</h3><p>نسبة زكاة النقود وعروض التجارة 2.5% من صافي المال الزكوي عند تمام الحول.</p><h3>هل أخصم الديون من مالي؟</h3><p>يرى كثير من أهل العلم خصم الديون الحالّة المستحقة عليك قبل حساب الزكاة، والحاسبة تتيح ذلك. للمسائل الخاصة يُرجع إلى أهل العلم.</p><h3>كيف أزكي الأسهم؟</h3><p>إذا كانت الأسهم للمتاجرة فتُزكى بقيمتها السوقية عند الحول. وإن كانت للاستثمار طويل الأمد ففيها تفصيل، ويمكن الرجوع إلى هيئة الزكاة والضريبة والجمارك أو أهل العلم.</p>
+  <div class="note">الحاسبة أداة تقديرية للمساعدة، وللحالات الخاصة يُرجع إلى أهل العلم أو هيئة الزكاة والضريبة والجمارك.</div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© <span id="yr"></span> حاسبتك. حاسبات مالية مجانية للمقيمين في السعودية.</div>
+    <div><a href="about.html">من نحن</a><a href="privacy.html">سياسة الخصوصية</a><a href="contact.html">اتصل بنا</a></div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+<script>
+// Live gold price: USD per troy ounce -> SAR per gram (SAR pegged at 3.75)
+(function(){
+  var OZ=31.1034768, PEG=3.75, KEY='hb_gold', TTL=3600000;
+  var input=document.getElementById('gp'), status=document.getElementById('gp-status');
+  function apply(g,ts){
+    if(!input.value) input.value=g.toFixed(2);
+    var t=new Date(ts).toLocaleString('ar-SA',{dateStyle:'medium',timeStyle:'short'});
+    status.textContent='تم جلب السعر العالمي تلقائيًا ('+t+')، ويمكنك تعديله';
+  }
+  function fail(){ if(!input.value) input.value='467.36'; status.textContent='تعذّر جلب السعر المباشر، هذا آخر سعر محفوظ (31 أكتوبر 2026)، عدّله إذا تغيّر';}
+  try{var c=JSON.parse(localStorage.getItem(KEY)||'null'); if(c&&Date.now()-c.at<TTL){apply(c.g,c.ts);return;}}catch(e){}
+  fetch('https://api.gold-api.com/price/XAU').then(function(r){if(!r.ok)throw 0;return r.json();})
+  .then(function(d){
+    var p=parseFloat(d.price); if(!(p>0))throw 0;
+    var g=p/OZ*PEG, ts=d.updatedAt?Date.parse(d.updatedAt):Date.now();
+    if(!isFinite(ts))ts=Date.now();
+    apply(g,ts);
+    try{localStorage.setItem(KEY,JSON.stringify({g:g,ts:ts,at:Date.now()}));}catch(e){}
+  }).catch(fail);
+})();
+function calcZakat(){
+  var total=num('cash')+num('inv')+num('gold')+num('recv'), net=total-num('debt'), gp=num('gp');
+  if(gp<=0){showResult('res','<p>أدخل سعر جرام الذهب الحالي لحساب النصاب.</p>');return;}
+  var nisab=85*gp, due=net>=nisab?net*0.025:0;
+  showResult('res','<div>الزكاة الواجبة</div><div class="big">'+sar(due)+'</div>'+rows([
+    ['إجمالي الأموال الزكوية', sar(total)],
+    ['صافي المال بعد الديون', sar(net)],
+    ['النصاب (85 جرام ذهب)', sar(nisab)],
+    ['هل بلغ النصاب؟', net>=nisab?'نعم':'لا']
+  ]));
+}
+</script>
+</body>
+</html>

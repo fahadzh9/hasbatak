@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حاسبة الراتب بعد التأمينات الاجتماعية 2026 | خصم GOSI</title>
+<meta name="description" content="احسب خصم التأمينات الاجتماعية وصافي الراتب للنظام القديم والجديد بنسب 2026، وتكلفة صاحب العمل.">
+<link rel="canonical" href="https://example.com/gosi-salary.html">
+<meta property="og:title" content="حاسبة الراتب بعد التأمينات الاجتماعية 2026 | خصم GOSI">
+<meta property="og:description" content="احسب خصم التأمينات الاجتماعية وصافي الراتب للنظام القديم والجديد بنسب 2026، وتكلفة صاحب العمل.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<!-- GOOGLE ADSENSE: after approval, replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID and remove the comment markers.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "على أي راتب يُحسب خصم التأمينات؟", "acceptedAnswer": {"@type": "Answer", "text": "يُحسب على الأجر الخاضع للاشتراك، وهو الراتب الأساسي مضافًا إليه بدل السكن، بحد أقصى 45,000 ريال شهريًا."}}, {"@type": "Question", "name": "ما الفرق بين النظام القديم والجديد؟", "acceptedAnswer": {"@type": "Answer", "text": "من سُجّل في التأمينات قبل 3 يوليو 2024 يبقى على النسب السابقة الثابتة. ومن سُجّل لأول مرة من ذلك التاريخ يخضع لنظام التأمينات الاجتماعية الجديد، وترتفع فيه نسبة المعاشات نصف نقطة مئوية على كل من الموظف وصاحب العمل في يوليو من كل سنة حتى 2028."}}, {"@type": "Question", "name": "هل يُخصم من راتب الموظف غير السعودي؟", "acceptedAnswer": {"@type": "Answer", "text": "لا، الموظف غير السعودي لا يُخصم من راتبه شيء، ويدفع صاحب العمل 2% فرع الأخطار المهنية."}}, {"@type": "Question", "name": "ما هو ساند؟", "acceptedAnswer": {"@type": "Answer", "text": "ساند هو نظام التأمين ضد التعطل عن العمل، ونسبته 0.75% على الموظف السعودي و0.75% على صاحب العمل."}}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span>٪</span>حاسبتك</a>
+    <nav class="nav" aria-label="القائمة الرئيسية"><a href="index.html">الرئيسية</a><a href="end-of-service.html">نهاية الخدمة</a><a href="mortgage.html">التمويل العقاري</a><a href="gosi-salary.html" aria-current="page">الراتب بعد التأمينات</a><a href="zakat.html">الزكاة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<section class="page-title">
+  <h1>حاسبة الراتب بعد خصم التأمينات الاجتماعية</h1>
+  <p>احسب خصم التأمينات (GOSI) وصافي راتبك وتكلفة صاحب العمل، بنسب 2026 للنظامين القديم والجديد.</p>
+</section>
+<section class="calc">
+  <div class="fields">
+    <div><label for="basic">الراتب الأساسي (ريال)</label><input id="basic" inputmode="decimal" placeholder="مثال: 10000"></div>
+    <div><label for="housing">بدل السكن (ريال)</label><input id="housing" inputmode="decimal" placeholder="مثال: 2500"></div>
+    <div><label for="other">بدلات أخرى (ريال)<span class="hint">النقل وغيره، لا يُخصم منها</span></label><input id="other" inputmode="decimal" placeholder="0"></div>
+    <div><label for="nat">الجنسية</label><select id="nat"><option value="sa">سعودي</option><option value="non">غير سعودي</option></select></div>
+    <div><label for="sys">تاريخ أول تسجيل في التأمينات</label>
+      <select id="sys"><option value="old">قبل 3 يوليو 2024</option><option value="new">من 3 يوليو 2024 فما بعد</option></select></div>
+  </div>
+  <button class="btn" onclick="calcGOSI()">احسب صافي الراتب</button>
+  <div id="res" class="result" aria-live="polite"></div>
+</section>
+<div class="ad-slot"><!-- AdSense ad unit goes here --></div>
+<section class="article">
+  <h2>نسب التأمينات الاجتماعية الحالية</h2>
+  <table>
+    <tr><th>الفئة</th><th>على الموظف</th><th>على صاحب العمل</th></tr>
+    <tr><td>سعودي، مسجل قبل 3 يوليو 2024</td><td>9.75%</td><td>11.75%</td></tr>
+    <tr><td>سعودي، مسجل من 3 يوليو 2024 (من يوليو 2026)</td><td>10.75%</td><td>12.75%</td></tr>
+    <tr><td>غير سعودي</td><td>0%</td><td>2%</td></tr>
+  </table>
+  <p>حصة الموظف السعودي في النظام القديم مقسمة إلى 9% لفرع المعاشات و0.75% لساند. أما صاحب العمل فيدفع النسب نفسها مضافًا إليها 2% للأخطار المهنية.</p>
+  <h2>كيف يُحسب صافي الراتب؟</h2>
+  <p>الأجر الخاضع للاشتراك = الأساسي + السكن (بحد أقصى 45,000 ريال). يُضرب في نسبة الموظف للحصول على مبلغ الخصم الشهري، ثم يُطرح من إجمالي الراتب بكل بدلاته.</p>
+  <h2>مثال عملي</h2>
+  <p>موظف سعودي مسجل قبل 2024، راتبه الأساسي 10,000 ريال وبدل السكن 2,500 وبدل النقل 1,000. الخاضع للاشتراك 12,500 ريال، والخصم 9.75% = 1,218.75 ريال، فيكون صافي الراتب 12,281.25 ريال.</p>
+  <h2>أسئلة شائعة</h2><h3>على أي راتب يُحسب خصم التأمينات؟</h3><p>يُحسب على الأجر الخاضع للاشتراك، وهو الراتب الأساسي مضافًا إليه بدل السكن، بحد أقصى 45,000 ريال شهريًا.</p><h3>ما الفرق بين النظام القديم والجديد؟</h3><p>من سُجّل في التأمينات قبل 3 يوليو 2024 يبقى على النسب السابقة الثابتة. ومن سُجّل لأول مرة من ذلك التاريخ يخضع لنظام التأمينات الاجتماعية الجديد، وترتفع فيه نسبة المعاشات نصف نقطة مئوية على كل من الموظف وصاحب العمل في يوليو من كل سنة حتى 2028.</p><h3>هل يُخصم من راتب الموظف غير السعودي؟</h3><p>لا، الموظف غير السعودي لا يُخصم من راتبه شيء، ويدفع صاحب العمل 2% فرع الأخطار المهنية.</p><h3>ما هو ساند؟</h3><p>ساند هو نظام التأمين ضد التعطل عن العمل، ونسبته 0.75% على الموظف السعودي و0.75% على صاحب العمل.</p>
+  <div class="note">النسب محدثة حتى نوفمبر 2026. نسبة النظام الجديد ترتفع في يوليو من كل سنة حتى 2028، وسنحدّث الحاسبة عند كل تغيير.</div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© <span id="yr"></span> حاسبتك. حاسبات مالية مجانية للمقيمين في السعودية.</div>
+    <div><a href="about.html">من نحن</a><a href="privacy.html">سياسة الخصوصية</a><a href="contact.html">اتصل بنا</a></div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+<script>
+function calcGOSI(){
+  var basic=num('basic'), housing=num('housing'), other=num('other'), nat=document.getElementById('nat').value, sys=document.getElementById('sys').value;
+  if(basic<=0){showResult('res','<p>أدخل الراتب الأساسي.</p>');return;}
+  var base=Math.min(basic+housing,45000), emp, er;
+  if(nat==='non'){emp=0;er=2;}
+  else if(sys==='new'){emp=10.75;er=12.75;}
+  else{emp=9.75;er=11.75;}
+  var ded=base*emp/100, erAmt=base*er/100, gross=basic+housing+other;
+  showResult('res','<div>صافي الراتب الشهري</div><div class="big">'+sar(gross-ded)+'</div>'+rows([
+    ['إجمالي الراتب', sar(gross)],
+    ['الأجر الخاضع للاشتراك', sar(base)],
+    ['خصم التأمينات ('+emp+'%)', sar(ded)],
+    ['حصة صاحب العمل ('+er+'%)', sar(erAmt)],
+    ['تكلفة الموظف على صاحب العمل', sar(gross+erAmt)]
+  ]));
+}
+</script>
+</body>
+</html>
